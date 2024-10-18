@@ -1,0 +1,17 @@
+:root {
+  /* main colors */
+  --main-bg-color: #1b2a6e;
+  --yellow-accent-color: #f3e06e;
+  --white-accent-color: #e6e6e6;
+  --text-color: #e6e6e6;
+  --dark-accent-color: #2c2e31;
+  --red-accent-color: #ff3547;
+
+  /* pads colors */
+  --pad0-bg-color: #9171c1;
+  --pad1-bg-color: rgb(92, 168, 191);
+  --pad2-bg-color: #b42dab;
+  --pad3-bg-color: rgb(238, 248, 92);
+  --pad4-bg-color: #82ccca;
+  --pad5-bg-color: rgb(98, 105, 205);
+}

@@ -1,0 +1,7 @@
+@import url(./styles/_fonts.css);
+@import url(./styles/_normalize.css);
+@import url(./styles/_variables.css);
+@import url(./styles/app.css);
+@import url(./styles/header.css);
+@import url(./styles/main.css);
+@import url(./styles/footer.css);

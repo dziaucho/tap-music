@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Fredoka", sans-serif;
 }
 
 section {
@@ -9,7 +9,6 @@ section {
   justify-content: space-between;
   height: 100vh;
 }
-
 
 h1 {
   font-size: 50px;
@@ -57,7 +56,7 @@ header {
   background-color: olive;
 }
 
-.animation-zone>div {
+.animation-zone > div {
   position: absolute;
   width: 100px;
   height: 100px;

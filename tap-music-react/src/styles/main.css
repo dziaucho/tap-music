@@ -1,0 +1,87 @@
+.main {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main__searching-form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.main__searching-form__input {
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: var(--white-accent-color);
+  font-family: Jua;
+  font-size: 30px;
+  color: var(--main-bg-color);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 10px;
+}
+
+.main__searching-form__button {
+  width: 120px;
+  border-radius: 20px;
+  background-color: var(--yellow-accent-color);
+  font-family: Jua;
+  font-size: 30px;
+  color: var(--main-bg-color);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 10px;
+  transition-duration: 0.2s;
+}
+
+.main__searching-form__button:hover {
+  background-color: var(--red-accent-color);
+}
+
+.main__searching-form__button:active {
+  opacity: 0.7;
+}
+
+.main__pads {
+  width: 100%;
+  display: flex;
+}
+
+.main__pads > div {
+  height: 100px;
+  flex: 1;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.main__pads > div:hover {
+  transform: scaleY(1.5);
+}
+
+.main__pad0 {
+  background-color: var(--pad0-bg-color);
+}
+
+.main__pad1 {
+  background-color: var(--pad1-bg-color);
+}
+
+.main__pad2 {
+  background-color: var(--pad2-bg-color);
+}
+
+.main__pad3 {
+  background-color: var(--pad3-bg-color);
+}
+
+.main__pad4 {
+  background-color: var(--pad4-bg-color);
+}
+
+.main__pad5 {
+  background-color: var(--pad5-bg-color);
+}

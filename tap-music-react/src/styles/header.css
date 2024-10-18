@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__heading {
+  font-size: 50px;
+  color: var(--yellow-accent-color);
+  text-shadow: rgba(0, 0, 0, 0.24) 0px 10px 10px;
+}
+
+.header__heading span {
+  text-shadow: none;
+}
+
+.header__paragraph {
+  font-size: 30px;
+  color: var(--text-color);
+}
