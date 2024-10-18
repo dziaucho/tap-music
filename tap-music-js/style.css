@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 25px;
+}
+
+header {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.pads {
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+}
+
+.pads div {
+  width: 100px;
+  height: 100px;
+  flex: 1;
+}
+
+.pad1 {
+  background-color: cadetblue;
+}
+
+.pad2 {
+  background-color: burlywood;
+}
+
+.pad3 {
+  background-color: tomato;
+}
+
+.pad4 {
+  background-color: skyblue;
+}
+
+.pad5 {
+  background-color: olive;
+}
+
+.animation-zone>div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+@keyframes jump {
+  0% {
+    left: 20%;
+    bottom: 0%;
+  }
+
+  50% {
+    left: 50%;
+    bottom: 50%;
+  }
+
+  100% {
+    left: 80%;
+    bottom: 0%;
+  }
+}
