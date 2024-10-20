@@ -1,0 +1,15 @@
+button {
+  border-radius: 50%;
+  background-color: var(--yellow-accent-color);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition-duration: 0.2s;
+}
+
+button:hover {
+  background-color: var(--red-accent-color);
+}
+
+button:active {
+  opacity: 0.7;
+}

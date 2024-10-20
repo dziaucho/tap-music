@@ -7,7 +7,7 @@ function Main() {
       <SearchingForm
         className="main"
         placeholder="type sound name here"
-        buttonText="magic!"
+        buttonText="search"
       />
       <div className="main__animation-zone"></div>
       <div className="main__pads">

@@ -7,7 +7,7 @@ function App() {
     <div className="app">
       <Header
         headingText="tap music"
-        paragraphText="create sounds with just one type"
+        paragraphText="create music with just a few clicks!"
       />
       <Main />
       <Footer />

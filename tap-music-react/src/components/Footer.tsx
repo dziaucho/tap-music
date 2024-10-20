@@ -1,14 +1,21 @@
 import { useState } from "react";
-import freesoundLogo from "../assets/icons/freesound.svg";
+import FooterLinks from "./FooterLinks";
+import FooterToggle from "./FooterToggle";
 
 function Footer() {
-  const [isVisible, changeFooterVisibility] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleClick = () => {
+    setIsVisible((prev) => !prev);
+  };
+
   return (
-    <footer>
-      <a href="https://github.com/dziaucho">dziaucho</a>
-      <a href="https://freesound.org">
-        <img src={freesoundLogo} alt="freesound logo"></img>
-      </a>
+    <footer className="footer">
+      {isVisible ? (
+        <FooterLinks handleClick={handleClick} />
+      ) : (
+        <FooterToggle handleClick={handleClick} />
+      )}
     </footer>
   );
 }
