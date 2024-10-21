@@ -6,3 +6,10 @@
 @import url(./styles/main.css);
 @import url(./styles/footer.css);
 @import url(./styles/_buttons.css);
+@import url(./styles/music-player.css);
+@import url(./styles/compositions-list.css);
+@import url(./styles/pagination.css);
+@import url(./styles/messages.css);
+@import url(./styles/wip-message.css);
+@import url(./styles/flex.css);
+@import url(./styles/select.css);

@@ -1,0 +1,10 @@
+select {
+  font-family: Jua;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 20px;
+  appearance: none;
+  width: 90px;
+  text-align: center;
+  cursor: pointer;
+}

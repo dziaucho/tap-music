@@ -1,0 +1,23 @@
+.pagination__div {
+  width: 100%;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination__button {
+  width: 80px;
+  font-size: 15px;
+  padding: 10px 5px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.skip-pagination__span {
+  color: var(--text-color);
+  font-size: 30px;
+}
+
+.pagination__button.active {
+  background-color: var(--dark-accent-color);
+  color: var(--text-color);
+}

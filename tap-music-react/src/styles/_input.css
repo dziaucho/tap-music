@@ -1,0 +1,5 @@
+input#volume {
+  accent-color: var(--yellow-accent-color);
+  width: 100%;
+  cursor: pointer;
+}

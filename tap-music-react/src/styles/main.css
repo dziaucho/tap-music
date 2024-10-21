@@ -1,16 +1,14 @@
 .main {
   width: 100%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  height: 80%;
+}
+
+.serching-wrapper__div {
+  width: 80%;
+  gap: 10px;
 }
 
 .main__searching-form {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
   width: 100%;
 }
 
@@ -29,13 +27,13 @@
 .main__searching-form__button {
   width: 120px;
   border-radius: 20px;
-  font-family: Jua;
   font-size: 30px;
 }
 
 .main__pads {
   width: 100%;
   display: flex;
+  margin-top: auto;
 }
 
 .main__pads > div {

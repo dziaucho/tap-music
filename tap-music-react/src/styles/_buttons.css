@@ -4,12 +4,18 @@ button {
   cursor: pointer;
   box-shadow: var(--shadow);
   transition-duration: 0.2s;
+  font-family: Jua;
+  color: var(--main-bg-color);
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background-color: var(--red-accent-color);
 }
 
-button:active {
+button:active:not(:disabled) {
   opacity: 0.7;
+}
+
+button:disabled {
+  cursor: auto;
 }
