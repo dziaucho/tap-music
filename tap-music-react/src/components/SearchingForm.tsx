@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { fetchSounds } from "../slices/soundSlice";
 import { AppDispatch } from "../state/store";
 import { useDispatch } from "react-redux";
@@ -8,6 +7,8 @@ interface SearchingFormProps {
   placeholder: string;
   buttonText: string;
   onSubmit: () => void;
+  inputValue: string;
+  setInputValue: (value: string) => void;
 }
 
 function SearchingForm({
@@ -15,15 +16,15 @@ function SearchingForm({
   placeholder,
   buttonText,
   onSubmit,
+  inputValue,
+  setInputValue,
 }: SearchingFormProps) {
-  const [inputValue, setInputValue] = useState("");
   const dispatch: AppDispatch = useDispatch();
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     dispatch(fetchSounds(inputValue));
     onSubmit();
-    setInputValue("");
   };
 
   return (

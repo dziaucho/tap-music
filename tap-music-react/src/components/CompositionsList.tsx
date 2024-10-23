@@ -9,9 +9,14 @@ import store, { RootState } from "../state/store";
 interface CompositionsListProps {
   setPreviews: Dispatch<SetStateAction<{ [x: number]: string }[]>>;
   previews: { [key: number]: string }[];
+  inputValue: string;
 }
 
-function CompositionsList({ setPreviews, previews }: CompositionsListProps) {
+function CompositionsList({
+  setPreviews,
+  previews,
+  inputValue,
+}: CompositionsListProps) {
   const { sounds } = useSelector((state: RootState) => state.sounds);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [activePlayer, setActivePlayer] = useState<number | null>(null);
@@ -43,6 +48,7 @@ function CompositionsList({ setPreviews, previews }: CompositionsListProps) {
       <Pagination
         itemsPerPage={5}
         totalItems={store.getState().sounds.totalPages}
+        inputValue={inputValue}
       />
     </div>
   );

@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 function Main() {
   const [isSearching, setSearchingStatus] = useState(false);
   const { loading } = useSelector((state: RootState) => state.sounds);
+  const [inputValue, setInputValue] = useState("");
   const [previews, setPreviews] = useState(
     Array.from({ length: 6 }, (_, index) => ({ [index]: "" }))
   );
@@ -21,9 +22,16 @@ function Main() {
           placeholder="type sound name here"
           buttonText="search"
           onSubmit={() => setSearchingStatus(true)}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
         />
+
         {isSearching && !loading && (
-          <CompositionsList setPreviews={setPreviews} previews={previews} />
+          <CompositionsList
+            setPreviews={setPreviews}
+            previews={previews}
+            inputValue={inputValue}
+          />
         )}
       </div>
 
