@@ -9,6 +9,9 @@ import { useSelector } from "react-redux";
 function Main() {
   const [isSearching, setSearchingStatus] = useState(false);
   const { loading } = useSelector((state: RootState) => state.sounds);
+  const [previews, setPreviews] = useState(
+    Array.from({ length: 6 }, (_, index) => ({ [index]: "" }))
+  );
 
   return (
     <main className="main flex-column-space-between">
@@ -19,12 +22,19 @@ function Main() {
           buttonText="search"
           onSubmit={() => setSearchingStatus(true)}
         />
-        {isSearching && !loading && <CompositionsList />}
+        {isSearching && !loading && (
+          <CompositionsList setPreviews={setPreviews} previews={previews} />
+        )}
       </div>
 
       <div className="main__pads">
         {Array.from({ length: 6 }, (_, index) => (
-          <Pad className="main" index={index} key={index} preview="" />
+          <Pad
+            className="main"
+            index={index}
+            key={index}
+            preview={previews[index][index]}
+          />
         ))}
       </div>
     </main>

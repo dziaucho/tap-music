@@ -16,4 +16,5 @@ export interface SoundState {
   loading: boolean;
   error: string | null;
   totalPages: number;
+  currentPage: number;
 }

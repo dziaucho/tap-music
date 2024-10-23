@@ -1,10 +1,17 @@
-import { useState, useRef } from "react";
+import { Dispatch, SetStateAction, useState, useRef } from "react";
+
 import MusicPlayer from "./MusicPlayer";
 import Pagination from "./Pagination";
-import { useSelector } from "react-redux";
-import { RootState } from "../state/store";
 
-function CompositionsList() {
+import { useSelector } from "react-redux";
+import store, { RootState } from "../state/store";
+
+interface CompositionsListProps {
+  setPreviews: Dispatch<SetStateAction<{ [x: number]: string }[]>>;
+  previews: { [key: number]: string }[];
+}
+
+function CompositionsList({ setPreviews, previews }: CompositionsListProps) {
   const { sounds } = useSelector((state: RootState) => state.sounds);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [activePlayer, setActivePlayer] = useState<number | null>(null);
@@ -29,9 +36,14 @@ function CompositionsList() {
           preview={sounds[index].previews?.["preview-hq-mp3"]}
           isActive={activePlayer === index}
           onPlay={(audioElement) => handlePlay(audioElement, index)}
+          setPreviews={setPreviews}
+          previews={previews}
         />
       ))}
-      <Pagination itemsPerPage={5} totalItems={10000} />
+      <Pagination
+        itemsPerPage={5}
+        totalItems={store.getState().sounds.totalPages}
+      />
     </div>
   );
 }
