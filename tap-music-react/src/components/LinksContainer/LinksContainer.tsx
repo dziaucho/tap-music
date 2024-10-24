@@ -1,5 +1,5 @@
 import freesoundLogo from "../../assets/icons/freesound.svg";
-import Button from "../Button";
+import Button from "../Button/Button";
 
 interface LinksContainerProps {
   handleClick: () => void;
