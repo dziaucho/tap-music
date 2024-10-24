@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import WipMessage from "./components/WipMessage";
 import LoadingMessage from "./components/LoadingMessage";
 import ErrorMessage from "./components/ErrorMessage";

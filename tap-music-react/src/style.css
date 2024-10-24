@@ -1,10 +1,16 @@
+/* done folders */
+
+@import url(./components/Footer/footer.css);
+@import url(./components/LinksContainer/links-container.css);
+
+/* undone */
+
 @import url(./styles/_fonts.css);
 @import url(./styles/_normalize.css);
 @import url(./styles/_variables.css);
 @import url(./styles/app.css);
 @import url(./styles/header.css);
 @import url(./styles/main.css);
-@import url(./styles/footer.css);
 @import url(./styles/_buttons.css);
 @import url(./styles/music-player.css);
 @import url(./styles/compositions-list.css);
