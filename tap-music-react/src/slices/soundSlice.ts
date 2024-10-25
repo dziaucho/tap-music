@@ -30,6 +30,9 @@ const soundSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.currentPage = action.payload;
     },
+    clearError: (state) => {
+      state.error = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -41,12 +44,12 @@ const soundSlice = createSlice({
         fetchSounds.fulfilled,
         (
           state,
-          action: PayloadAction<{ sounds: Composition[]; count: number }>
+          action: PayloadAction<{ sounds: Composition[]; count: number }>,
         ) => {
           state.loading = false;
           state.sounds = action.payload.sounds;
           state.totalPages = Math.ceil(action.payload.count / 5);
-        }
+        },
       )
       .addCase(fetchSounds.rejected, (state, action) => {
         state.loading = false;
@@ -55,6 +58,6 @@ const soundSlice = createSlice({
   },
 });
 
-export const { setPage } = soundSlice.actions;
+export const { setPage, clearError } = soundSlice.actions;
 
 export default soundSlice.reducer;

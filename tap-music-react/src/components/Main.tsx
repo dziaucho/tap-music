@@ -11,7 +11,7 @@ function Main() {
   const { loading } = useSelector((state: RootState) => state.sounds);
   const [inputValue, setInputValue] = useState("");
   const [previews, setPreviews] = useState(
-    Array.from({ length: 6 }, (_, index) => ({ [index]: "" }))
+    Array.from({ length: 6 }, (_, index) => ({ [index]: "" })),
   );
 
   return (

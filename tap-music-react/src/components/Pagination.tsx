@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../state/store";
 import { fetchSounds, setPage } from "../slices/soundSlice";
@@ -23,14 +23,14 @@ function Pagination({ totalItems, itemsPerPage, inputValue }: PaginationProps) {
   let startPage = Math.max(2, currentPage - Math.floor(maxButtons / 2));
   let endPage = Math.min(
     totalPages - 1,
-    currentPage + Math.floor(maxButtons / 2)
+    currentPage + Math.floor(maxButtons / 2),
   );
   if (startPage > endPage - maxButtons + 1) {
     startPage = Math.max(2, endPage - maxButtons + 1);
   }
   const pages = Array.from(
     { length: endPage - startPage + 1 },
-    (_, index) => startPage + index
+    (_, index) => startPage + index,
   );
 
   return (
@@ -38,7 +38,7 @@ function Pagination({ totalItems, itemsPerPage, inputValue }: PaginationProps) {
       <Button
         className={currentPage === 1 ? "active pagination" : "pagination"}
         onClick={() => handlePageChange(1)}
-        disabled={currentPage === 1}
+        isDisabled={currentPage === 1}
       >
         1
       </Button>
@@ -48,7 +48,7 @@ function Pagination({ totalItems, itemsPerPage, inputValue }: PaginationProps) {
           className={currentPage === page ? "active pagination" : "pagination"}
           key={index}
           onClick={() => handlePageChange(page)}
-          disabled={currentPage === page}
+          isDisabled={currentPage === page}
         >
           {page}
         </Button>
@@ -61,7 +61,7 @@ function Pagination({ totalItems, itemsPerPage, inputValue }: PaginationProps) {
           currentPage === totalPages ? "active pagination" : "pagination"
         }
         onClick={() => handlePageChange(totalPages)}
-        disabled={currentPage === totalPages}
+        isDisabled={currentPage === totalPages}
       >
         {totalPages}
       </Button>

@@ -1,0 +1,7 @@
+.modal-bg__div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState, useRef, useEffect } from "react";
-import Button from "./Button";
+import Button from "./button/Button";
 import play from "../assets/icons/play.svg";
 import pause from "../assets/icons/pause.svg";
 import Select from "./Select";
