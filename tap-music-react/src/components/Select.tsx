@@ -1,7 +1,7 @@
 interface SelectProps {
   options: string[];
   selectedOption: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void; // Уточнённый тип
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 function Select({ options, selectedOption, onChange }: SelectProps) {

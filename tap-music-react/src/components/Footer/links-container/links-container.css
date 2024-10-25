@@ -1,25 +1,4 @@
-.footer {
-  position: absolute;
-  bottom: 200px;
-  left: 20px;
-  width: 100%;
-}
-
-.footer-show__button {
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-}
-
-.footer-hide__button {
-  width: 25px;
-  height: 25px;
-  font-size: 15px;
-  margin-left: auto;
-  box-shadow: none;
-}
-
-.footer-links__container {
+.links__container {
   width: 40%;
   height: 50px;
   padding: 5px 20px;

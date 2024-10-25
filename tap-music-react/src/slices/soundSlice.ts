@@ -8,22 +8,32 @@ const initialState: SoundState = {
   loading: false,
   error: null,
   totalPages: 0,
+  currentPage: 1,
 };
 
 const freesoundAPI = new FreesoundAPI(API_KEY, BASE_URL);
 
 export const fetchSounds = createAsyncThunk<
   { sounds: Composition[]; count: number },
-  string
->("sounds/fetchSounds", async (query: string) => {
-  const response = await freesoundAPI.fetch(query);
+  string,
+  { state: { sounds: SoundState } }
+>("sounds/fetchSounds", async (query: string, { getState }) => {
+  const state = getState();
+  const response = await freesoundAPI.fetch(query, state.sounds.currentPage);
   return { sounds: response.sounds, count: response.count };
 });
 
 const soundSlice = createSlice({
   name: "sounds",
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
+    clearError: (state) => {
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSounds.pending, (state) => {
@@ -34,12 +44,12 @@ const soundSlice = createSlice({
         fetchSounds.fulfilled,
         (
           state,
-          action: PayloadAction<{ sounds: Composition[]; count: number }>
+          action: PayloadAction<{ sounds: Composition[]; count: number }>,
         ) => {
           state.loading = false;
           state.sounds = action.payload.sounds;
           state.totalPages = Math.ceil(action.payload.count / 5);
-        }
+        },
       )
       .addCase(fetchSounds.rejected, (state, action) => {
         state.loading = false;
@@ -47,5 +57,7 @@ const soundSlice = createSlice({
       });
   },
 });
+
+export const { setPage, clearError } = soundSlice.actions;
 
 export default soundSlice.reducer;

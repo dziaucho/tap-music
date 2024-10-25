@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import Button from "./Button";
+import { Dispatch, SetStateAction, useState, useRef, useEffect } from "react";
+import Button from "./button/Button";
 import play from "../assets/icons/play.svg";
 import pause from "../assets/icons/pause.svg";
 import Select from "./Select";
@@ -13,6 +13,8 @@ interface MusicPlayerProps {
   preview: string | undefined;
   isActive: boolean;
   onPlay: (audioElement: HTMLAudioElement | null) => void;
+  setPreviews: Dispatch<SetStateAction<{ [x: number]: string }[]>>;
+  previews: { [key: number]: string }[];
 }
 
 function MusicPlayer({
@@ -20,6 +22,8 @@ function MusicPlayer({
   preview,
   isActive,
   onPlay,
+  setPreviews,
+  previews,
 }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string>("");
@@ -48,6 +52,18 @@ function MusicPlayer({
     setSelectedOption(event.target.value);
   };
 
+  const handleClick = () => {
+    if (+selectedOption.slice(1)) {
+      const index = Number(selectedOption.slice(1)) - 1;
+      const newPreviews = [...previews];
+      newPreviews[index] = {
+        ...newPreviews[index],
+        [index]: audioRef.current?.src ? audioRef.current?.src : "",
+      };
+      setPreviews(newPreviews);
+    }
+  };
+
   return (
     <div className="music-controls flex-row-space-between">
       <Audio
@@ -65,7 +81,7 @@ function MusicPlayer({
         selectedOption={selectedOption}
         onChange={handleOptionChange}
       />
-      <Button className="music-player__add" onClick={() => console.log("heh")}>
+      <Button className="music-player__add" onClick={handleClick}>
         add
       </Button>
     </div>

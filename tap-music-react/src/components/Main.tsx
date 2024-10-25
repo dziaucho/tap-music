@@ -9,6 +9,10 @@ import { useSelector } from "react-redux";
 function Main() {
   const [isSearching, setSearchingStatus] = useState(false);
   const { loading } = useSelector((state: RootState) => state.sounds);
+  const [inputValue, setInputValue] = useState("");
+  const [previews, setPreviews] = useState(
+    Array.from({ length: 6 }, (_, index) => ({ [index]: "" })),
+  );
 
   return (
     <main className="main flex-column-space-between">
@@ -18,13 +22,27 @@ function Main() {
           placeholder="type sound name here"
           buttonText="search"
           onSubmit={() => setSearchingStatus(true)}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
         />
-        {isSearching && !loading && <CompositionsList />}
+
+        {isSearching && !loading && (
+          <CompositionsList
+            setPreviews={setPreviews}
+            previews={previews}
+            inputValue={inputValue}
+          />
+        )}
       </div>
 
       <div className="main__pads">
         {Array.from({ length: 6 }, (_, index) => (
-          <Pad className="main" index={index} key={index} preview="" />
+          <Pad
+            className="main"
+            index={index}
+            key={index}
+            preview={previews[index][index]}
+          />
         ))}
       </div>
     </main>

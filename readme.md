@@ -26,4 +26,3 @@ he there! just migrating one of my earliest projects to react while adding funct
 - [ ] hint on what to search;
 - [ ] volume setting;
 - [ ] local storage music setup save;
-      

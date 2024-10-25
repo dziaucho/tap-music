@@ -1,37 +1,44 @@
-import { useState } from "react";
-import Button from "./Button";
+import Button from "./button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../state/store";
+import { fetchSounds, setPage } from "../slices/soundSlice";
 
 interface PaginationProps {
   itemsPerPage: number;
   totalItems: number;
+  inputValue: string;
 }
 
-function Pagination({ totalItems, itemsPerPage }: PaginationProps) {
-  const [currentPage, setCurrentPage] = useState(1);
+function Pagination({ totalItems, itemsPerPage, inputValue }: PaginationProps) {
+  const dispatch: AppDispatch = useDispatch();
+  const { currentPage } = useSelector((state: RootState) => state.sounds);
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const maxButtons = 5;
+
+  const handlePageChange = (page: number) => {
+    dispatch(setPage(page));
+    dispatch(fetchSounds(inputValue));
+  };
 
   let startPage = Math.max(2, currentPage - Math.floor(maxButtons / 2));
   let endPage = Math.min(
     totalPages - 1,
-    currentPage + Math.floor(maxButtons / 2)
+    currentPage + Math.floor(maxButtons / 2),
   );
-
   if (startPage > endPage - maxButtons + 1) {
     startPage = Math.max(2, endPage - maxButtons + 1);
   }
-
   const pages = Array.from(
     { length: endPage - startPage + 1 },
-    (_, index) => startPage + index
+    (_, index) => startPage + index,
   );
 
   return (
     <div className="pagination__div flex-row-center">
       <Button
         className={currentPage === 1 ? "active pagination" : "pagination"}
-        onClick={() => setCurrentPage(1)}
-        disabled={currentPage === 1}
+        onClick={() => handlePageChange(1)}
+        isDisabled={currentPage === 1}
       >
         1
       </Button>
@@ -40,8 +47,8 @@ function Pagination({ totalItems, itemsPerPage }: PaginationProps) {
         <Button
           className={currentPage === page ? "active pagination" : "pagination"}
           key={index}
-          onClick={() => setCurrentPage(page)}
-          disabled={currentPage === page}
+          onClick={() => handlePageChange(page)}
+          isDisabled={currentPage === page}
         >
           {page}
         </Button>
@@ -53,8 +60,8 @@ function Pagination({ totalItems, itemsPerPage }: PaginationProps) {
         className={
           currentPage === totalPages ? "active pagination" : "pagination"
         }
-        onClick={() => setCurrentPage(totalPages)}
-        disabled={currentPage === totalPages}
+        onClick={() => handlePageChange(totalPages)}
+        isDisabled={currentPage === totalPages}
       >
         {totalPages}
       </Button>
