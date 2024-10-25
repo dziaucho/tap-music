@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LinksContainer from "../LinksContainer/LinksContainer";
-import Button from "../Button/Button";
+import LinksContainer from "./links-container/LinksContainer";
+import Button from "../button/Button";
 
 function Footer() {
   const [isVisible, setIsVisible] = useState(false);

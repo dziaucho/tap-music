@@ -1,11 +1,12 @@
 /* done folders */
 
-@import url(./components/Footer/footer.css);
-@import url(./components/LinksContainer/links-container.css);
-@import url(./components/Button/_buttons.css);
+@import url(./components/footer/footer.css);
+@import url(./components/footer/links-container/links-container.css);
+@import url(./components/button/_buttons.css);
+@import url(./components/modal/messages/messages.css);
+@import url(./components/modal/modal.css);
 
 /* undone */
-
 @import url(./styles/_fonts.css);
 @import url(./styles/_normalize.css);
 @import url(./styles/_variables.css);
@@ -15,7 +16,5 @@
 @import url(./styles/music-player.css);
 @import url(./styles/compositions-list.css);
 @import url(./styles/pagination.css);
-@import url(./styles/messages.css);
-@import url(./styles/wip-message.css);
 @import url(./styles/flex.css);
 @import url(./styles/select.css);

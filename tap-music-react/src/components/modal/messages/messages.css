@@ -1,15 +1,15 @@
 .message__div {
-  width: 50%;
-  height: 30%;
-  gap: 20px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  background-color: var(--dark-accent-color);
-  z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 50%;
+  height: 30%;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  background-color: var(--dark-accent-color);
 }
 
 .message__heading {
@@ -20,6 +20,16 @@
 .message__paragraph {
   font-size: 20px;
   color: var(--text-color);
+}
+.message__button {
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+}
+
+.error-message__container {
+  margin-bottom: auto;
+  gap: 20px;
 }
 
 .dot {
