@@ -5,6 +5,7 @@
 @import url(./components/button/_buttons.css);
 @import url(./components/modal/messages/messages.css);
 @import url(./components/modal/modal.css);
+@import url(./components/pagination/pagination.css);
 
 /* undone */
 @import url(./styles/_fonts.css);
@@ -15,6 +16,5 @@
 @import url(./styles/main.css);
 @import url(./styles/music-player.css);
 @import url(./styles/compositions-list.css);
-@import url(./styles/pagination.css);
 @import url(./styles/flex.css);
 @import url(./styles/select.css);

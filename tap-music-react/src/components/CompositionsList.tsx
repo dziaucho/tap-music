@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, useState, useRef } from "react";
 
 import MusicPlayer from "./MusicPlayer";
-import Pagination from "./Pagination";
+import Pagination from "./pagination/Pagination";
 
 import { useSelector } from "react-redux";
-import store, { RootState } from "../state/store";
+import { RootState } from "../state/store";
 
 interface CompositionsListProps {
   setPreviews: Dispatch<SetStateAction<{ [x: number]: string }[]>>;
@@ -45,11 +45,7 @@ function CompositionsList({
           previews={previews}
         />
       ))}
-      <Pagination
-        itemsPerPage={5}
-        totalItems={store.getState().sounds.totalPages}
-        inputValue={inputValue}
-      />
+      <Pagination inputValue={inputValue} />
     </div>
   );
 }

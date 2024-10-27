@@ -1,37 +1,22 @@
-import Button from "./button/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../state/store";
-import { fetchSounds, setPage } from "../slices/soundSlice";
+import Button from "../button/Button";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../state/store";
+import { fetchSounds, setPage } from "../../slices/soundSlice";
+import calculatePages from "./calculate-pages";
 
 interface PaginationProps {
-  itemsPerPage: number;
-  totalItems: number;
   inputValue: string;
 }
 
-function Pagination({ totalItems, itemsPerPage, inputValue }: PaginationProps) {
+function Pagination({ inputValue }: PaginationProps) {
   const dispatch: AppDispatch = useDispatch();
-  const { currentPage } = useSelector((state: RootState) => state.sounds);
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const maxButtons = 5;
-
   const handlePageChange = (page: number) => {
     dispatch(setPage(page));
     dispatch(fetchSounds(inputValue));
   };
 
-  let startPage = Math.max(2, currentPage - Math.floor(maxButtons / 2));
-  let endPage = Math.min(
-    totalPages - 1,
-    currentPage + Math.floor(maxButtons / 2),
-  );
-  if (startPage > endPage - maxButtons + 1) {
-    startPage = Math.max(2, endPage - maxButtons + 1);
-  }
-  const pages = Array.from(
-    { length: endPage - startPage + 1 },
-    (_, index) => startPage + index,
-  );
+  const { currentPage, totalPages, startPage, endPage, pages } =
+    calculatePages();
 
   return (
     <div className="pagination__div flex-row-center">
