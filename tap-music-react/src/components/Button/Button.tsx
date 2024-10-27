@@ -1,16 +1,26 @@
+import React from "react";
+
 interface ButtonProps {
   children: React.ReactNode;
   className: string;
-  onClick: () => void;
+  onClick?: () => void;
   isDisabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
-function Button({ children, className, onClick, isDisabled }: ButtonProps) {
+function Button({
+  children,
+  className,
+  onClick,
+  isDisabled = false,
+  type = "button",
+}: ButtonProps) {
   return (
     <button
       onClick={onClick}
       className={`${className}__button`}
-      {...(isDisabled && { disabled: true })}
+      disabled={isDisabled}
+      type={type}
     >
       {children}
     </button>

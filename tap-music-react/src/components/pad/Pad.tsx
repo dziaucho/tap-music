@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import Audio from "./Audio";
+import { useState } from "react";
+import Audio from "../audio/Audio";
 
 interface PadProps {
   className: string;
@@ -9,7 +9,6 @@ interface PadProps {
 
 function Pad({ className, index, preview }: PadProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleClick = () => {
     setIsPlaying((prev) => !prev);
@@ -17,7 +16,7 @@ function Pad({ className, index, preview }: PadProps) {
 
   return (
     <div className={`${className}__pad${index}`} onClick={handleClick}>
-      <Audio preview={preview} isPlaying={isPlaying} audioRef={audioRef} />
+      <Audio preview={preview} isPlaying={isPlaying} isRepeat={true} />
       <p></p>
     </div>
   );
