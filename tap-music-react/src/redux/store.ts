@@ -1,13 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import soundReducer from "../slices/soundSlice";
+import { RootStateType } from "./types";
+import soundsReducer from "./soundsSlice";
 
 const store = configureStore({
   reducer: {
-    sounds: soundReducer,
+    sounds: soundsReducer,
   },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export type RootState = RootStateType;
 
 export default store;

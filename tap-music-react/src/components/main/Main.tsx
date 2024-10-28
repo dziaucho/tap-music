@@ -10,7 +10,7 @@ function Main() {
   const { loading } = useSelector((state: RootState) => state.sounds);
   const [inputValue, setInputValue] = useState("");
   const [previews, setPreviews] = useState(
-    Array.from({ length: 6 }, (_) => "")
+    Array.from({ length: 6 }, (_) => ""),
   );
 
   const addMusicToPad = (index: number, preview: string) => {
