@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearError } from "../../../../slices/soundSlice";
-import { RootState } from "../../../../state/store";
+import { clearError } from "../../../../redux/soundsSlice";
+import { RootState } from "../../../../redux/store";
 
 import Button from "../../../button/Button";
 

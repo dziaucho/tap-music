@@ -15,7 +15,7 @@ interface resultInterface {
 
 export async function getSounds(
   query: string,
-  page: number
+  page: number,
 ): Promise<[number, number[], string[]]> {
   return apiSearch
     .get("", {
@@ -43,7 +43,7 @@ const apiSounds = axios.create({
   baseURL: SOUNDS_URL,
 });
 
-export async function getSoundInfo(soundId: number): Promise<[string, string]> {
+export async function getSoundInfo(soundId: number): Promise<string> {
   const url = `${soundId}/`;
 
   return apiSounds

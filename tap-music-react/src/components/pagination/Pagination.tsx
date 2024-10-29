@@ -1,7 +1,8 @@
 import Button from "../button/Button";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../state/store";
-import { fetchSounds, setPage } from "../../slices/soundSlice";
+import { AppDispatch } from "../../redux/store";
+import { fetchSounds } from "../../redux/async";
+import { setCurrentPage } from "../../redux/soundsSlice";
 import calculatePages from "./calculate-pages";
 
 interface PaginationProps {
@@ -11,12 +12,14 @@ interface PaginationProps {
 function Pagination({ inputValue }: PaginationProps) {
   const dispatch: AppDispatch = useDispatch();
   const handlePageChange = (page: number) => {
-    dispatch(setPage(page));
-    dispatch(fetchSounds(inputValue));
+    dispatch(setCurrentPage(page));
+    dispatch(fetchSounds({ query: inputValue, page }));
   };
 
   const { currentPage, totalPages, startPage, endPage, pages } =
     calculatePages();
+
+  if (totalPages < 2) return <></>;
 
   return (
     <div className="pagination__div flex-row-center">

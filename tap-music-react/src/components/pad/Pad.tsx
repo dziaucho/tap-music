@@ -17,7 +17,6 @@ function Pad({ className, index, preview }: PadProps) {
   return (
     <div className={`${className}__pad${index}`} onClick={handleClick}>
       <Audio preview={preview} isPlaying={isPlaying} isRepeat={true} />
-      <p></p>
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
-import store, { RootState } from "../../state/store";
+import store, { RootState } from "../../redux/store";
 
 function calculatePages() {
-  const { currentPage } = useSelector((state: RootState) => state.sounds);
-  const totalItems = store.getState().sounds.totalPages;
+  const currentPage = useSelector(
+    (state: RootState) => state.sounds.currentPage,
+  );
+  const totalItems = store.getState().sounds.count;
   const itemsPerPage = 5;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const maxButtons = 3;

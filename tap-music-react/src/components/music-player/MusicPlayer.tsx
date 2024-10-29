@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { RootState } from "../../state/store";
+import { useEffect, useState } from "react";
+import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import Button from "../button/Button";
 import play from "../../assets/icons/play.svg";
@@ -17,13 +17,18 @@ function MusicPlayer({ musicName, preview, addMusicToPad }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [padIndex, changePadIndex] = useState<number | null>(null);
 
-  const { loading, error } = useSelector((state: RootState) => state.sounds);
-  if (loading || error) {
-    setIsPlaying(false);
-  }
+  const { isLoading, error } = useSelector((state: RootState) => state.sounds);
+
+  useEffect(() => {
+    if (isLoading || error) {
+      setIsPlaying(false);
+    }
+  }, [isLoading, error]);
 
   const handleClick = () => {
-    if (preview && padIndex !== null) addMusicToPad(padIndex, preview);
+    if (preview && padIndex !== null) {
+      addMusicToPad(padIndex, preview);
+    }
   };
 
   return (
@@ -37,6 +42,7 @@ function MusicPlayer({ musicName, preview, addMusicToPad }: MusicPlayerProps) {
       <Button className="music-player__add" onClick={handleClick}>
         add
       </Button>
+      {error && <p className="error-message">Ошибка: {error}</p>}
     </div>
   );
 }

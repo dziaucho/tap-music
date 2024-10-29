@@ -15,7 +15,11 @@ function Select({ changePadIndex }: SelectProps) {
   };
 
   return (
-    <select value={selectedOption} onChange={handleOptionChange}>
+    <select
+      value={selectedOption}
+      onChange={handleOptionChange}
+      name="select_pad"
+    >
       <option value="" disabled>
         select
       </option>

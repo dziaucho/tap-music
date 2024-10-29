@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RootState } from "../../state/store";
+import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import SearchingForm from "../searching-form/SearchingForm";
 import Pad from "../pad/Pad";
@@ -7,7 +7,7 @@ import CompositionsList from "../compositions-list/CompositionsList";
 
 function Main() {
   const [isSearching, setSearchingStatus] = useState(false);
-  const { loading } = useSelector((state: RootState) => state.sounds);
+  const { isLoading } = useSelector((state: RootState) => state.sounds);
   const [inputValue, setInputValue] = useState("");
   const [previews, setPreviews] = useState(
     Array.from({ length: 6 }, (_) => ""),
@@ -28,7 +28,7 @@ function Main() {
           setInputValue={setInputValue}
         />
 
-        {isSearching && !loading && (
+        {isSearching && !isLoading && (
           <CompositionsList
             addMusicToPad={addMusicToPad}
             inputValue={inputValue}
