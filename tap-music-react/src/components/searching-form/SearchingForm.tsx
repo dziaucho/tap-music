@@ -1,7 +1,10 @@
-import { fetchSounds } from "../../slices/soundSlice";
-import { AppDispatch } from "../../state/store";
-import { useDispatch } from "react-redux";
+import { fetchSounds, fetchSoundInfo } from "../../redux/async";
+import { AppDispatch } from "../../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import Button from "../button/Button";
+import { useEffect } from "react";
+import { setCurrentPage } from "../../redux/soundsSlice";
 
 interface SearchingFormProps {
   onSubmit: () => void;
@@ -15,12 +18,18 @@ function SearchingForm({
   setInputValue,
 }: SearchingFormProps) {
   const dispatch: AppDispatch = useDispatch();
+  const { soundsId } = useSelector((state: RootState) => state.sounds);
 
   const handleSubmit = (event: React.FormEvent) => {
+    dispatch(setCurrentPage(1));
     event.preventDefault();
-    dispatch(fetchSounds(inputValue));
+    dispatch(fetchSounds({ query: inputValue, page: 1 }));
     onSubmit();
   };
+
+  useEffect(() => {
+    dispatch(fetchSoundInfo({ soundsId }));
+  }, [soundsId, dispatch]);
 
   return (
     <form
