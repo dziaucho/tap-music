@@ -6,17 +6,13 @@ import Button from "../button/Button";
 import { useEffect } from "react";
 import { setCurrentPage } from "../../redux/soundsSlice";
 
-interface SearchingFormProps {
+interface SearchFormProps {
   onSubmit: () => void;
   inputValue: string;
   setInputValue: (value: string) => void;
 }
 
-function SearchingForm({
-  onSubmit,
-  inputValue,
-  setInputValue,
-}: SearchingFormProps) {
+function SearchForm({ onSubmit, inputValue, setInputValue }: SearchFormProps) {
   const dispatch: AppDispatch = useDispatch();
   const { soundsId } = useSelector((state: RootState) => state.sounds);
 
@@ -33,22 +29,22 @@ function SearchingForm({
 
   return (
     <form
-      className={"main__searching-form flex-row-space-between"}
+      className={"search-form flex-row-space-between"}
       onSubmit={handleSubmit}
     >
       <input
-        name="searching-form"
-        className={"main__searching-form__input"}
+        name="search-form"
+        className={"search-form__input"}
         type="text"
         placeholder="type sound name here"
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
       />
-      <Button className="main__searching-form" type="submit">
+      <Button className="search-form" type="submit">
         search
       </Button>
     </form>
   );
 }
 
-export default SearchingForm;
+export default SearchForm;

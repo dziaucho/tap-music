@@ -9,6 +9,7 @@
 @import url(./components/music-player/music-player.css);
 @import url(./components/compositions-list/compositions-list.css);
 @import url(./components/main/main.css);
+@import url(./components/search-form/search-from.css);
 
 @import url(./styles/_fonts.css);
 @import url(./styles/_normalize.css);

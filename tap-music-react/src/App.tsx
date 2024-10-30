@@ -5,7 +5,7 @@ import Modal from "./components/modal/Modal";
 
 function App() {
   return (
-    <div className="app">
+    <div className="app flex-column-space-between">
       <Modal />
       <Header />
       <Main />

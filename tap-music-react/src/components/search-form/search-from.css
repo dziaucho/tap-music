@@ -1,0 +1,24 @@
+.search-form {
+  width: 80%;
+}
+
+.search-form > * {
+  height: 100%;
+}
+
+.search-form__input {
+  width: 80%;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  background-color: var(--white-accent-color);
+  text-align: center;
+  font-family: Jua;
+  font-size: 30px;
+  color: var(--main-bg-color);
+}
+
+.search-form__button {
+  padding: 0 20px;
+  border-radius: 20px;
+  font-size: 30px;
+}

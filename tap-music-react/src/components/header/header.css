@@ -1,6 +1,6 @@
 .header {
-  padding-top: 40px;
   gap: 20px;
+  flex: 1;
 }
 
 .header__heading {

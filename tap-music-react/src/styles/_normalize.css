@@ -7,14 +7,12 @@
 
 body {
   height: 100vh;
+  background-color: var(--main-bg-color);
+  font-family: Jua;
 }
 
 #root {
   height: 100%;
-}
-
-ul {
-  list-style: none;
 }
 
 a {
