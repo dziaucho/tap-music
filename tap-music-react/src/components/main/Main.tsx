@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import SearchingForm from "../searching-form/SearchingForm";
+import SearchForm from "../search-form/SearchForm";
 import Pad from "../pad/Pad";
 import CompositionsList from "../compositions-list/CompositionsList";
 
@@ -10,7 +10,7 @@ function Main() {
   const { isLoading } = useSelector((state: RootState) => state.sounds);
   const [inputValue, setInputValue] = useState("");
   const [previews, setPreviews] = useState(
-    Array.from({ length: 6 }, (_) => ""),
+    Array.from({ length: 6 }, (_) => "")
   );
 
   const addMusicToPad = (index: number, preview: string) => {
@@ -21,20 +21,18 @@ function Main() {
 
   return (
     <main className="main flex-column-space-between">
-      <div className="serching-wrapper__div flex-column-center">
-        <SearchingForm
-          onSubmit={() => setSearchingStatus(true)}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
+      <SearchForm
+        onSubmit={() => setSearchingStatus(true)}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
 
-        {isSearching && !isLoading && (
-          <CompositionsList
-            addMusicToPad={addMusicToPad}
-            inputValue={inputValue}
-          />
-        )}
-      </div>
+      {isSearching && !isLoading && (
+        <CompositionsList
+          addMusicToPad={addMusicToPad}
+          inputValue={inputValue}
+        />
+      )}
 
       <div className="main__pads">
         {Array.from({ length: 6 }, (_, index) => (

@@ -34,7 +34,10 @@ function MusicPlayer({ musicName, preview, addMusicToPad }: MusicPlayerProps) {
   return (
     <div className="music-controls flex-row-space-between">
       <Audio preview={preview} isPlaying={isPlaying} isRepeat={false} />
-      <Button className="music-player" onClick={() => setIsPlaying(!isPlaying)}>
+      <Button
+        className="music-player__controls"
+        onClick={() => setIsPlaying(!isPlaying)}
+      >
         <img src={isPlaying ? pause : play} alt="play / pause" />
       </Button>
       <p className="music-player__paragraph">{musicName}</p>
